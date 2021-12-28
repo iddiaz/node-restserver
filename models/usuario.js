@@ -36,7 +36,9 @@ const UsuarioSchema = Schema({
 
 //control de la visivilidad de la contraseña y __V
 UsuarioSchema.methods.toJSON = function() {
-   const { __v, password, ...user } = this.toObject();
+   const { __v, password, _id, ...user } = this.toObject();
+   user.uid = _id;
+   console.log('user', user);
    return user;
 };
 

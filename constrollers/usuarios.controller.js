@@ -82,18 +82,21 @@ const usersPut = async(req, res = response) => {
 const usersDelete = async(req, res = response)=> {
 
    const {id} = req.params;
-
+   // const uid = req.uid;
+   
    //Borrado Fisico del objeto:
    // const usuario = await Usuario.findByIdAndDelete( id );
    
    const usuario = await Usuario.findByIdAndUpdate( id, {estado: false} );
-
-   
+   // const usuarioAuth = req.usuarioAuth;
 
    
       res.json({      
-         "msg": "usuario borrado",
-         usuario
+         msg: "usuario borrado",
+         usuario,
+         // uid,
+         
+
       });
    
 }
